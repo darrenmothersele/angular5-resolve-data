@@ -8,7 +8,7 @@ Click the tab number below to browse each version
 by switching to the tag in GitHub, or download 
 tagged versions from the [GitHub releases page](/darrenmothersele/angular5-resolve-data/releases).
 
-## Initial version ([tag v0](/darrenmothersele/angular5-resolve-data/tree/v0))
+## Initial version ([tag v0](../../tree/v0))
 
 Created a `UserService` to load some dummy contact/user data.
 A naive implementation that injects this service into 
