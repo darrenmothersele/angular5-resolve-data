@@ -4,7 +4,7 @@ import {User} from "../../model/user.model";
 import {Store} from "@ngrx/store";
 
 import * as fromStore from '../../shared/store';
-import * as userDetailsActions from '../../shared/store/actions/user-details.action';
+import * as userActions from '../../shared/store/actions/user.actions';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
@@ -19,15 +19,15 @@ export class ContactPageComponent implements OnInit {
 
     /* container component */
 
-    user$: Observable<User>;
+    user$: Observable<Partial<User>>;
 
     constructor(
         private store: Store<fromStore.State>,
         route: ActivatedRoute
     ) {
-        this.user$ = store.select(fromStore.getUserDetails);
+        this.user$ = store.select(fromStore.getSelectedUser);
         route.params.subscribe(({ id }) => {
-            store.dispatch(new userDetailsActions.LoadAction(+id))
+            store.dispatch(new userActions.LoadDetailAction(+id))
         });
     }
 

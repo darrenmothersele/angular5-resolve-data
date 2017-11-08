@@ -11,8 +11,7 @@ import {reducers} from "./shared/store";
 import {environment} from "../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {EffectsModule} from "@ngrx/effects";
-import {UsersEffect} from "./shared/store/effects/users.effect";
-import {UserDetailsEffect} from "./shared/store/effects/user-details.effect";
+import {UserEffects} from "./shared/store/effects/user.effects";
 
 
 const routes: Routes = [
@@ -45,8 +44,7 @@ const routes: Routes = [
         StoreModule.forRoot(reducers),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
         EffectsModule.forRoot([
-            UsersEffect,
-            UserDetailsEffect
+            UserEffects
         ])
     ],
     providers: [

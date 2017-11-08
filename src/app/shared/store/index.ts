@@ -1,24 +1,36 @@
-import {createSelector} from "@ngrx/store";
+import {createFeatureSelector, createSelector} from "@ngrx/store";
 
-import * as fromUsers from './reducers/users.reducer';
-import * as fromUserDetails from './reducers/user-details.reducer';
+import * as fromUser from './reducers/user.reducer';
 
 export interface State {
-    users: fromUsers.State;
-    userDetail: fromUserDetails.State;
+    users: fromUser.State;
 }
 
 export const reducers = {
-    users: fromUsers.reducer,
-    userDetail: fromUserDetails.reducer
+    users: fromUser.reducer
 };
 
-export const getUsersState   = (state: State) => state.users;
-export const getUsers  = createSelector(getUsersState, fromUsers.getUsers);
-export const getUsersLoading  = createSelector(getUsersState, fromUsers.getLoading);
-export const getUsersFailed  = createSelector(getUsersState, fromUsers.getFailed);
 
-export const getUserDetailsState   = (state: State) => state.userDetail;
-export const getUserDetails  = createSelector(getUserDetailsState, fromUserDetails.getUser);
-export const getUserDetailsLoading  = createSelector(getUserDetailsState, fromUserDetails.getLoading);
-export const getUserDetailsFailed  = createSelector(getUserDetailsState, fromUserDetails.getFailed);
+export const getUserState = createFeatureSelector<fromUser.State>('users');
+
+export const {
+    selectIds,
+    selectEntities,
+    selectAll,
+    selectTotal
+} = fromUser.userAdapter.getSelectors(getUserState);
+
+
+export const getSelectedUserId = createSelector(
+    getUserState,
+    fromUser.getSelectedId
+);
+
+export const getSelectedUser = createSelector(
+    selectEntities,
+    getSelectedUserId,
+    (entities, selectedId) => {
+        console.log({entities, selectedId});
+        return selectedId && entities[selectedId];
+    }
+);

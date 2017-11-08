@@ -88,6 +88,25 @@ The actual loading is managed as Effects as part of the store.
 In this version you will find all the store related code 
 (actions, reducers, effects) in the `shared/store` directory.
 
+## ngrx entity ([tag v4](../../tree/v3))
+
+Rather than having a separate state for the user list and the 
+selected user detail, I've consolidated this into a single 
+repository of user entities. Using the ngrx entity library
+cuts down on the boilerplate code needed to do this.
+
+I've replaced the two sets of actions, effects and reducers with
+a single `user` reducer. This maintains a single set of `Partial<User>`
+entities. The summary list fills in the basic data for all users 
+that are available. Then, a user page can be displayed quickly
+but with a limited amount of data. The HTTP request is sent off 
+to fetch the detailed data, which is added to the record in the 
+store. This is then available if the user navigates away from 
+the page, and returns later. 
+
+The caching is only during the single session, because there
+is no integration with browser local storage yet.
+
 
 ## local storage
 
@@ -99,7 +118,5 @@ already have in the store to save extra web requests.
 
 ## TODO: 
 
- - reuse existing data to save web requests
- - augment summary data by making web requests for further details
  - ngrx/db, pouchdb, localforage or some other local datastore
  - graceful handling of api errors
