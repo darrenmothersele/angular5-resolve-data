@@ -19,7 +19,7 @@ export class ContactListComponent implements OnInit {
     /* Container component */
 
     isLoading$: Observable<boolean>;
-    users$: Observable<User[]>;
+    users$: Observable<Partial<User>[]>;
 
     constructor(private store: Store<fromStore.State>) {
         this.isLoading$ = store.select(fromStore.getUsersLoading);
