@@ -4,7 +4,7 @@ A demonstration of various ways to resolve data in Angular 2, 4 and 5.
 Starting basic, and then progresses through using Router Resolvers, and 
 NgRx Actions and Effects.
 
-Click the tab number below to browse each version 
+Click the tag/version number below to browse each version 
 by switching to the tag in GitHub, or download 
 tagged versions from the [GitHub releases page](../../releases).
 
