@@ -88,7 +88,7 @@ The actual loading is managed as Effects as part of the store.
 In this version you will find all the store related code 
 (actions, reducers, effects) in the `shared/store` directory.
 
-## ngrx entity ([tag v4](../../tree/v3))
+## ngrx entity ([tag v4](../../tree/v4))
 
 Rather than having a separate state for the user list and the 
 selected user detail, I've consolidated this into a single 
