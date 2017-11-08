@@ -90,3 +90,10 @@ some improvements. There are multiple round trips to the server
 for the same data. Let's improve this by re-using the data we 
 already have in the store to save extra web requests.
 
+
+## TODO: 
+
+ - reuse existing data to save web requests
+ - augment summary data by making web requests for further details
+ - ngrx/db, pouchdb, localforage or some other local datastore
+ - graceful handling of api errors
