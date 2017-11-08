@@ -82,3 +82,11 @@ The actual loading is managed as Effects as part of the store.
 In this version you will find all the store related code 
 (actions, reducers, effects) in the `shared/store` directory.
 
+
+## local storage
+
+Now that we have a centralised store, we can look at making 
+some improvements. There are multiple round trips to the server
+for the same data. Let's improve this by re-using the data we 
+already have in the store to save extra web requests.
+
