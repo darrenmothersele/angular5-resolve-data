@@ -4,7 +4,11 @@ A demonstration of various ways to resolve data in Angular 2, 4 and 5.
 Starting basic, and then progresses through using Router Resolvers, and 
 NgRx Actions and Effects.
 
-## Initial version (tag v0)
+Click the tab number below to browse each version 
+by switching to the tag in GitHub, or download 
+tagged versions from the [GitHub releases page](/darrenmothersele/angular5-resolve-data/releases).
+
+## Initial version ([tag v0](/darrenmothersele/angular5-resolve-data/tree/v0))
 
 Created a `UserService` to load some dummy contact/user data.
 A naive implementation that injects this service into 
@@ -19,13 +23,13 @@ Added some simple feedback to show when data is being loaded from
 the server, but lots of room for improvement. 
 
 
-## User List Resolver (tag v1.1)
+## User List Resolver ([tag v1.1](/darrenmothersele/angular5-resolve-data/tree/v1.1))
 
 First change is to pre-fetch the data before displaying the component.
 The Angular Router supports adding resolvers. This returns an observable
 that will resolve the required data. 
 
-## User Resolver (tag v1.2)
+## User Resolver ([tag v1.2](/darrenmothersele/angular5-resolve-data/tree/v1.2))
 
 Added another resolver for user data. This one reads the `:id` param
 and resolves data for a specific user. 
@@ -40,7 +44,7 @@ always have data, but with the current setup, there's a noticeable
 delay. We no longer get the loading feedback that we designed into 
 the first approach.
 
-## Container components (tag v2)
+## Container components ([tag v2](/darrenmothersele/angular5-resolve-data/tree/v2))
 
 Another popular pattern is to split components into container and 
 presentational components. Let's move even closer toward single 
@@ -53,7 +57,7 @@ The contact detail component was converted to a presentational
 component, and a new contact page component was added as it's
 container.
 
-## ngrx store (tag v3)
+## ngrx store ([tag v3](/darrenmothersele/angular5-resolve-data/tree/v3))
 
 Before making further improvements, need to complicate things 
 a bit by adding the store. It might seem like a load of boilerplate
