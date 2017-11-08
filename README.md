@@ -8,6 +8,12 @@ Click the tab number below to browse each version
 by switching to the tag in GitHub, or download 
 tagged versions from the [GitHub releases page](../../releases).
 
+![angular5 example](screenshot.png "Angular 5 example")
+
+The data used in this example comes from the 
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) service.
+
+
 ## Initial version ([tag v0](../../tree/v0))
 
 Created a `UserService` to load some dummy contact/user data.
