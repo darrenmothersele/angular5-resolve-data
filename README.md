@@ -47,6 +47,12 @@ presentational components. Let's move even closer toward single
 responsibility principle by refactoring the components split out
 the bits related to presentation into separate components.
 
+The contact list component was converted to a container component
+and it's presentation was moved to the contact card component.
+The contact detail component was converted to a presentational
+component, and a new contact page component was added as it's
+container.
+
 
 
 

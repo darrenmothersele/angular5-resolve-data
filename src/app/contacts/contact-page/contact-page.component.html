@@ -1,0 +1,6 @@
+
+<div *ngIf="user$ | async; let user; else loading">
+  <app-contact-detail [user]="user"></app-contact-detail>
+</div>
+
+<ng-template #loading>Loading User Data...</ng-template>

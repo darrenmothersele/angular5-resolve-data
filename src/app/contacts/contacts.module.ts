@@ -5,6 +5,8 @@ import {ContactsRoutingModule} from "./contacts-routing.module";
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import {UserListResolver} from "./user-list.resolver";
 import {UserResolver} from "./user.resovler";
+import { ContactCardComponent } from './contact-card/contact-card.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
     imports: [
@@ -15,7 +17,7 @@ import {UserResolver} from "./user.resovler";
         UserListResolver,
         UserResolver
     ],
-    declarations: [ContactListComponent, ContactDetailComponent]
+    declarations: [ContactListComponent, ContactDetailComponent, ContactCardComponent, ContactPageComponent]
 })
 export class ContactsModule {
 }

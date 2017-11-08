@@ -10,6 +10,8 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ContactListComponent implements OnInit {
 
+    /* Container component */
+
     isLoaded = false;
     users: User[] = [];
 

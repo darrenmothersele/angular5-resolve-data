@@ -4,6 +4,7 @@ import {ContactListComponent} from "./contact-list/contact-list.component";
 import {ContactDetailComponent} from "./contact-detail/contact-detail.component";
 import {UserListResolver} from "./user-list.resolver";
 import {UserResolver} from "./user.resovler";
+import {ContactPageComponent} from "./contact-page/contact-page.component";
 
 export const routes: Routes = [
     {
@@ -15,7 +16,7 @@ export const routes: Routes = [
     },
     {
         path: ':id',
-        component: ContactDetailComponent,
+        component: ContactPageComponent,
         resolve: {
             user: UserResolver
         }

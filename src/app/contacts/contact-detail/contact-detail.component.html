@@ -1,28 +1,21 @@
+<div class="columns">
+    <div class="column is-half">
+        <p class="title">{{ user.name }}</p>
+        <p class="subtitle">@{{ user.username }}</p>
 
-<div *ngIf="user; else loading">
-
-    <div class="columns">
-        <div class="column is-half">
-            <p class="title">{{ user.name }}</p>
-            <p class="subtitle">@{{ user.username }}</p>
-
-            <div class="content">
-                <dl>
-                    <dt>Email</dt>
-                    <dd>{{ user.email }}</dd>
-                    <dt>Phone</dt>
-                    <dd>{{ user.phone }}</dd>
-                    <dt>Website</dt>
-                    <dd>{{ user.website }}</dd>
-                </dl>
-            </div>
-        </div>
-
-        <div class="column is-half">
-            <pre>{{ user | json }}</pre>
+        <div class="content">
+            <dl>
+                <dt>Email</dt>
+                <dd>{{ user.email }}</dd>
+                <dt>Phone</dt>
+                <dd>{{ user.phone }}</dd>
+                <dt>Website</dt>
+                <dd>{{ user.website }}</dd>
+            </dl>
         </div>
     </div>
 
+    <div class="column is-half">
+        <pre>{{ user | json }}</pre>
+    </div>
 </div>
-
-<ng-template #loading>Loading User Data...</ng-template>

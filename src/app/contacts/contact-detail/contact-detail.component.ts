@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../shared/user.service";
 import {User} from "../../model/user.model";
 import {ActivatedRoute} from "@angular/router";
@@ -8,15 +8,10 @@ import {ActivatedRoute} from "@angular/router";
     templateUrl: './contact-detail.component.html',
     styleUrls: ['./contact-detail.component.scss']
 })
-export class ContactDetailComponent implements OnInit {
+export class ContactDetailComponent {
 
-    user: User;
+    /* presentation component */
 
-    constructor(private route: ActivatedRoute) { }
+    @Input() user: User;
 
-    ngOnInit() {
-        this.route.data.subscribe(({ user }) => {
-            this.user = user;
-        });
-    }
 }
