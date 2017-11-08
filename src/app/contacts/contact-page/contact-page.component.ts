@@ -1,10 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {User} from "../../model/user.model";
-import {ActivatedRoute} from "@angular/router";
+import {Store} from "@ngrx/store";
+
+import * as fromStore from '../../shared/store';
+import * as userDetailsActions from '../../shared/store/actions/user-details.action';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-contact-page',
@@ -17,9 +21,14 @@ export class ContactPageComponent implements OnInit {
 
     user$: Observable<User>;
 
-    constructor(route: ActivatedRoute) {
-        this.user$ = route.data
-            .map(({ user }) => user);
+    constructor(
+        private store: Store<fromStore.State>,
+        route: ActivatedRoute
+    ) {
+        this.user$ = store.select(fromStore.getUserDetails);
+        route.params.subscribe(({ id }) => {
+            store.dispatch(new userDetailsActions.LoadAction(+id))
+        });
     }
 
     ngOnInit() {

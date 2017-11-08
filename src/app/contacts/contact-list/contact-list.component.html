@@ -1,5 +1,6 @@
-<div class="columns is-multiline is-mobile" *ngIf="isLoaded; else loading">
-    <div class="column is-one-third" *ngFor="let user of users">
+<div class="columns is-multiline is-mobile"
+     *ngIf="!(isLoading$ | async); else loading">
+    <div class="column is-one-third" *ngFor="let user of users$ | async">
         <app-contact-card [user]="user"></app-contact-card>
     </div>
 </div>

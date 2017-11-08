@@ -53,8 +53,28 @@ The contact detail component was converted to a presentational
 component, and a new contact page component was added as it's
 container.
 
+## ngrx store (tag v3)
 
+Before making further improvements, need to complicate things 
+a bit by adding the store. It might seem like a load of boilerplate
+at first, but later will make improvements easier. Adding things
+like improvements to async functionality, caching, etc.
 
+In this version there is one global store for all the application
+state. The components select which part of the store they are 
+interested in. The presentation components do not need to change
+from before because they are still just dumb components that are 
+passed data to display. The container components however are changed.
+The container component does as select of the part of the store
+it is interested in, which is given to the component as an 
+Observable. This is subscribed to in the template using the 
+async pipe. The components also dispatch a load action to 
+prompt the loading of the data they require. In the case of the
+list this is a general action with no payload. The detail page
+first gets the ID parameter from the router, then uses this
+to dispatch an action to load the specific item.
 
-
+The actual loading is managed as Effects as part of the store.
+In this version you will find all the store related code 
+(actions, reducers, effects) in the `shared/store` directory.
 

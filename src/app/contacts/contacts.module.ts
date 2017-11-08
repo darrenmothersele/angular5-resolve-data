@@ -3,8 +3,6 @@ import {CommonModule} from '@angular/common';
 import {ContactListComponent} from './contact-list/contact-list.component';
 import {ContactsRoutingModule} from "./contacts-routing.module";
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
-import {UserListResolver} from "./user-list.resolver";
-import {UserResolver} from "./user.resovler";
 import { ContactCardComponent } from './contact-card/contact-card.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 
@@ -14,8 +12,6 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
         ContactsRoutingModule
     ],
     providers: [
-        UserListResolver,
-        UserResolver
     ],
     declarations: [ContactListComponent, ContactDetailComponent, ContactCardComponent, ContactPageComponent]
 })

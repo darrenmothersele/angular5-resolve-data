@@ -2,6 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../../model/user.model";
 import {UserService} from "../../shared/user.service";
 import {ActivatedRoute} from "@angular/router";
+import {Store} from "@ngrx/store";
+
+import * as fromStore from '../../shared/store';
+import * as userActions from '../../shared/store/actions/users.actions';
+
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'app-contact-list',
@@ -12,16 +18,15 @@ export class ContactListComponent implements OnInit {
 
     /* Container component */
 
-    isLoaded = false;
-    users: User[] = [];
+    isLoading$: Observable<boolean>;
+    users$: Observable<User[]>;
 
-    constructor(private route: ActivatedRoute) { }
-
-    ngOnInit() {
-        this.route.data.subscribe(({ users }) => {
-            this.users = users;
-            this.isLoaded = true;
-        });
+    constructor(private store: Store<fromStore.State>) {
+        this.isLoading$ = store.select(fromStore.getUsersLoading);
+        this.users$ = store.select(fromStore.getUsers);
     }
 
+    ngOnInit() {
+        this.store.dispatch(new userActions.LoadAction());
+    }
 }
