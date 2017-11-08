@@ -38,8 +38,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes)
     ],
     providers: [
-        UserService,
-        UserListResolver
+        UserService
     ],
     bootstrap: [AppComponent]
 })

@@ -3,6 +3,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {ContactListComponent} from "./contact-list/contact-list.component";
 import {ContactDetailComponent} from "./contact-detail/contact-detail.component";
 import {UserListResolver} from "./user-list.resolver";
+import {UserResolver} from "./user.resovler";
 
 export const routes: Routes = [
     {
@@ -14,7 +15,10 @@ export const routes: Routes = [
     },
     {
         path: ':id',
-        component: ContactDetailComponent
+        component: ContactDetailComponent,
+        resolve: {
+            user: UserResolver
+        }
     }
 ];
 

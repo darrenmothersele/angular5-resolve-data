@@ -12,15 +12,11 @@ export class ContactDetailComponent implements OnInit {
 
     user: User;
 
-    constructor(service: UserService, route: ActivatedRoute) {
-        route.params.subscribe(({ id }) => {
-            service.getUser(id).subscribe(user => {
-                this.user = user;
-            });
-        });
-    }
+    constructor(private route: ActivatedRoute) { }
 
     ngOnInit() {
+        this.route.data.subscribe(({ user }) => {
+            this.user = user;
+        });
     }
-
 }
