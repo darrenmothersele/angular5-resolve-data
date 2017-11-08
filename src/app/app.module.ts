@@ -6,6 +6,8 @@ import {AppComponent} from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./shared/user.service";
+import {UserListResolver} from "./contacts/user-list.resolver";
+
 
 const routes: Routes = [
     {
@@ -36,7 +38,8 @@ const routes: Routes = [
         RouterModule.forRoot(routes)
     ],
     providers: [
-        UserService
+        UserService,
+        UserListResolver
     ],
     bootstrap: [AppComponent]
 })
