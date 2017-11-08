@@ -8,6 +8,12 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/do';
 import {Post} from "../model/post.model";
 
+import * as R from 'ramda';
+
+const trimUser: (_: User) => Partial<User>
+    = R.pick(['id', 'name', 'username']);
+
+
 @Injectable()
 export class UserService {
 
@@ -15,9 +21,12 @@ export class UserService {
 
     constructor(private http: HttpClient) {}
 
-    public getUsers(): Observable<User[]> {
+    public getUsers(): Observable<Partial<User>[]> {
         return this.http.get<User[]>(this.endpoint)
-            .delay(1000) // simulate slow network
+            // simulate slow network
+            .delay(1000)
+            // simulate summary feed
+            .map(users => R.map(trimUser, users))
             .do(x => console.log('fetched users', x));
     }
 

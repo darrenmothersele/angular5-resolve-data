@@ -4,7 +4,7 @@ import * as actions from '../actions/users.actions';
 export interface State {
     loading: boolean;
     failed: boolean;
-    users: User[];
+    users: Partial<User>[];
 }
 
 const initialState: State = {

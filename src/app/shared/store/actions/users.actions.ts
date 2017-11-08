@@ -11,7 +11,7 @@ export class LoadAction implements Action {
 
 export class LoadSuccessAction implements Action {
     readonly type = LOAD_SUCCESS;
-    constructor(public payload: User[]) {}
+    constructor(public payload: Partial<User>[]) {}
 }
 
 export class LoadFailureAction implements Action {
