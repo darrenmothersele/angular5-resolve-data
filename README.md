@@ -121,15 +121,7 @@ purposes. Instead I've opted to add a separate set of flags
 to the store.
 
 
-## local storage
-
-Now that we have a centralised store, we can look at making 
-some improvements. There are multiple round trips to the server
-for the same data. Let's improve this by re-using the data we 
-already have in the store to save extra web requests.
-
-
 ## TODO: 
 
- - ngrx/db, pouchdb, localforage or some other local datastore
+ - ngrx/db, pouchdb, localforage or some other local data store
  - graceful handling of api errors
