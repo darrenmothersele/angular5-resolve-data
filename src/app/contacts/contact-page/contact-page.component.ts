@@ -20,14 +20,18 @@ export class ContactPageComponent implements OnInit {
     /* container component */
 
     user$: Observable<Partial<User>>;
+    isPartial: boolean = true;
 
     constructor(
         private store: Store<fromStore.State>,
         route: ActivatedRoute
     ) {
         this.user$ = store.select(fromStore.getSelectedUser);
+        store.select(fromStore.getUserDetailLoadedForSelected)
+            .subscribe(detailLoaded => this.isPartial = !detailLoaded);
+
         route.params.subscribe(({ id }) => {
-            store.dispatch(new userActions.LoadDetailAction(+id))
+            store.dispatch(new userActions.LoadDetailAction(+id));
         });
     }
 

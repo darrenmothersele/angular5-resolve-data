@@ -29,8 +29,11 @@ export const getSelectedUserId = createSelector(
 export const getSelectedUser = createSelector(
     selectEntities,
     getSelectedUserId,
-    (entities, selectedId) => {
-        console.log({entities, selectedId});
-        return selectedId && entities[selectedId];
-    }
+    (entities, selectedId) => selectedId && entities[selectedId]
 );
+
+export const getUserDetailLoadedForSelected = createSelector(
+    getUserState,
+    fromUser.hasDetailLoadedForSelected
+);
+

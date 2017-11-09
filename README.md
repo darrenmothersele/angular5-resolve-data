@@ -107,6 +107,19 @@ the page, and returns later.
 The caching is only during the single session, because there
 is no integration with browser local storage yet.
 
+## loading feedback ([tag v5](../../tree/v5))
+
+When you navigate to a contact page for a user that has not
+yet been fetched in detail, you see just the summary fields
+until the rest is loaded. I'd like to show some feedback that
+a server request is in process. 
+
+Af first I thought about adding a flag to the user
+model to show if it's partial or fully loaded, but this feels
+dirty to add something to the data model purely for UI 
+purposes. Instead I've opted to add a separate set of flags
+to the store.
+
 
 ## local storage
 

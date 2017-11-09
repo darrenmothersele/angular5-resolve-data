@@ -13,5 +13,5 @@ export class ContactDetailComponent {
     /* presentation component */
 
     @Input() user: User;
-
+    @Input() isPartial = true;
 }

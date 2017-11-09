@@ -13,6 +13,8 @@
                 <dd>{{ user.website }}</dd>
             </dl>
         </div>
+
+        <div *ngIf="isPartial">Loading...</div>
     </div>
 
     <div class="column is-half">
