@@ -1,7 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from "../../shared/user.service";
-import {User} from "../../model/user.model";
-import {ActivatedRoute} from "@angular/router";
+import {Component, Input} from '@angular/core';
+import {User} from '../../model/user.model';
 
 @Component({
     selector: 'app-contact-detail',

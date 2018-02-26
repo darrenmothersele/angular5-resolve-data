@@ -1,17 +1,16 @@
-import {Injectable} from "@angular/core";
-import {environment} from "../../environments/environment";
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import {User} from "../model/user.model";
+import {Injectable} from '@angular/core';
+import {environment} from '../../environments/environment';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {User} from '../model/user.model';
 
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/do';
-import {Post} from "../model/post.model";
+import {Post} from '../model/post.model';
 
 import * as R from 'ramda';
 
-const trimUser: (_: User) => Partial<User>
-    = R.pick(['id', 'name', 'username']);
+const trimUser = R.pick(['id', 'name', 'username']) as (_: User) => Partial<User>;
 
 
 @Injectable()

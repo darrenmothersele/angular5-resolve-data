@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs/Observable";
-import {User} from "../../model/user.model";
-import {Store} from "@ngrx/store";
-
-import * as fromStore from '../../shared/store';
-import * as userActions from '../../shared/store/actions/user.actions';
+import {Observable} from 'rxjs/Observable';
+import {User} from '../../model/user.model';
+import {Store} from '@ngrx/store';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
+import {AppState, getIsSelectedNotLoaded, getSelectedUser} from '../../state';
+import {UserActions} from '../../state/users/actions';
 
 @Component({
     selector: 'app-contact-page',
@@ -20,21 +19,19 @@ export class ContactPageComponent implements OnInit {
     /* container component */
 
     user$: Observable<Partial<User>>;
-    isPartial: boolean = true;
+    isPartial$: Observable<boolean>;
 
     constructor(
-        private store: Store<fromStore.State>,
+        private store: Store<AppState>,
         route: ActivatedRoute
     ) {
-        this.user$ = store.select(fromStore.getSelectedUser);
-        store.select(fromStore.getUserDetailLoadedForSelected)
-            .subscribe(detailLoaded => this.isPartial = !detailLoaded);
-
         route.params.subscribe(({ id }) => {
-            store.dispatch(new userActions.LoadDetailAction(+id));
+            store.dispatch(UserActions.loadDetail({ id }));
         });
     }
 
     ngOnInit() {
+        this.user$ = this.store.select(getSelectedUser);
+        this.isPartial$ = this.store.select(getIsSelectedNotLoaded);
     }
 }

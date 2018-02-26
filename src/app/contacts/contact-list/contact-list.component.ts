@@ -1,13 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../model/user.model";
-import {UserService} from "../../shared/user.service";
-import {ActivatedRoute} from "@angular/router";
-import {Store} from "@ngrx/store";
-
-import * as fromStore from '../../shared/store';
-import * as userActions from '../../shared/store/actions/user.actions';
-
-import {Observable} from "rxjs/Observable";
+import {User} from '../../model/user.model';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
+import {AppState, getUsers} from '../../state';
+import {UserActions} from '../../state/users/actions';
 
 @Component({
     selector: 'app-contact-list',
@@ -20,11 +16,10 @@ export class ContactListComponent implements OnInit {
 
     users$: Observable<Partial<User>[]>;
 
-    constructor(private store: Store<fromStore.State>) {
-        this.users$ = store.select(fromStore.selectAll);
-    }
+    constructor(private store: Store<AppState>) {}
 
     ngOnInit() {
-        this.store.dispatch(new userActions.LoadSummaryAction());
+        this.users$ = this.store.select(getUsers);
+        this.store.dispatch(UserActions.loadSummary({}));
     }
 }
