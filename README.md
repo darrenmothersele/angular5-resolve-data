@@ -120,8 +120,7 @@ dirty to add something to the data model purely for UI
 purposes. Instead I've opted to add a separate set of flags
 to the store.
 
+## Unionize ([tag v6](../../tree/v6))
 
-## TODO: 
-
- - ngrx/db, pouchdb, localforage or some other local data store
- - graceful handling of api errors
+I have started using [unionize](https://github.com/pelotom/unionize).
+to reduce the boilerplate needed when working with NgRx.
